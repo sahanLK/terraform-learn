@@ -13,10 +13,12 @@ provider "aws" {
   region = "us-west-2"
 }
 
+
 resource "aws_instance" "app_server" {
-  count         = 3
-  ami           = "ami-830c94e3"
+  count         = 2
+  ami           = "ami-075686beab831bb7f"  
   instance_type = "t2.micro"
+  key_name      = "aws-key"
 
   tags = {
     Name = "${var.instance_name}-${count.index + 1}"
